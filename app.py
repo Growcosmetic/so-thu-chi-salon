@@ -1719,5 +1719,12 @@ def manage_staff_page():
             st.info("Chưa có dữ liệu giao dịch.")
 
 if __name__ == "__main__":
-    main()
+    try:
+        main()
+    except Exception as e:
+        st.error(f"❌ Lỗi khi khởi động app: {str(e)}")
+        st.info("Vui lòng kiểm tra logs hoặc liên hệ hỗ trợ.")
+        import traceback
+        with st.expander("Chi tiết lỗi"):
+            st.code(traceback.format_exc())
 
